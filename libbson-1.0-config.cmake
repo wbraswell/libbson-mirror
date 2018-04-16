@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# WBRASWELL 20180315 2018.074: manually set PACKAGE_PREFIX_DIR due to CMake "does not exist" failures
-set (PACKAGE_PREFIX_DIR /usr)
-
 set (BSON_MAJOR_VERSION 1)
 set (BSON_MINOR_VERSION 9)
 set (BSON_MICRO_VERSION 3)
@@ -31,6 +28,9 @@ macro(set_and_check _var _file)
     message(FATAL_ERROR "File or directory ${_file} referenced by variable ${_var} does not exist !")
   endif()
 endmacro()
+
+# WBRASWELL 20180315 2018.074: manually set PACKAGE_PREFIX_DIR due to CMake "does not exist" failures
+set (PACKAGE_PREFIX_DIR /usr)
 
 set_and_check (BSON_INCLUDE_DIRS "${PACKAGE_PREFIX_DIR}/include/libbson-1.0")
 
